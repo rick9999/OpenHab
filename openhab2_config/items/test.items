@@ -47,33 +47,33 @@ Group:Number:AVG                humidade        "Humidade relativa média [%.0f 
 Group:Contact:OR(OPEN, CLOSED)  portas          "Portas/janelas abertas [(%d)]"         <contact>
 
 /* iluminação */
-Dimmer light_rc_sala_1          "Iluminação sala de estar"    (rc_sala, iluminacao)       ["Light", "Lighting"]
-Dimmer light_rc_sala_2          "Iluminação sala de jantar"   (rc_sala, iluminacaoo)      ["Light", "Lighting"]
-Switch light_rc_entrada_1       "Iluminação corredor"         (rc_entrada, iluminacao)    ["Light"]
-Switch light_rc_entrada_2       "Iluminação escadas"          (rc_entrada, iluminacao)    ["Light"]
-Switch light_rc_cozinha         "Iluminação cozinha"          (rc_cozinha, iluminacao)    ["Light"]
-Switch light_rc_wc              "Iluminação casa de banho"    (rc_wc, iluminacao)         ["Light"]
+Dimmer light_rc_sala_1          "Iluminação sala de estar"           (rc_sala, iluminacao)       ["Light", "Lighting"]
+Dimmer light_rc_sala_2          "Iluminação sala de jantar"          (rc_sala, iluminacaoo)      ["Light", "Lighting"]
+Switch light_rc_entrada_1       "Iluminação corredor"       <light>  (rc_entrada, iluminacao)    ["Light"]
+Switch light_rc_entrada_2       "Iluminação escadas"        <light>  (rc_entrada, iluminacao)    ["Light"]
+Switch light_rc_cozinha         "Iluminação cozinha"        <light>  (rc_cozinha, iluminacao)    ["Light"]
+Switch light_rc_wc              "Iluminação casa de banho"  <light>  (rc_wc, iluminacao)         ["Light"]
 
-Switch light_1A_wc               "Iluminação casa de banho"   (1A_wc, iluminacao)         ["Light"]
-Switch light_1A_hall             "Iluminação corredor"        (1A_hall, iluminacao)       ["Light"]
-Switch light_1A_Escadas          "Iluminação escadas"         (1A_hall, iluminacao)       ["Light"]
-Switch light_1A_ines             "Iluminação quarto Inês"     (1A_ines, iluminacao)       ["Light"]
-Switch light_1A_Visitas          "Iluminação quarto visitas"  (1A_visitas, iluminacao)    ["Light"]
-Switch light_1A_masterBed        "Iluminação quarto"          (1A_masterBed, iluminacao)  ["Light"]
-Switch light_1A_masterBed_wc     "Iluminação quarto wc"       (1A_masterBed, iluminacao)  ["Light"]
-Switch light_1A_masterBed_closet "Iluminação quarto closet"   (1A_masterBed, iluminacao)  ["Light"]
+Switch light_1A_wc               "Iluminação casa de banho" <light>  (1A_wc, iluminacao)         ["Light"]
+Switch light_1A_hall             "Iluminação corredor"      <light>  (1A_hall, iluminacao)       ["Light"]
+Switch light_1A_Escadas          "Iluminação escadas"       <light>  (1A_hall, iluminacao)       ["Light"]
+Switch light_1A_ines             "Iluminação quarto Inês"   <light>  (1A_ines, iluminacao)       ["Light"]
+Switch light_1A_Visitas          "Iluminação quarto visitas"<light>  (1A_visitas, iluminacao)    ["Light"]
+Switch light_1A_masterBed        "Iluminação quarto"        <light>  (1A_masterBed, iluminacao)  ["Light"]
+Switch light_1A_masterBed_wc     "Iluminação quarto wc"     <light>  (1A_masterBed, iluminacao)  ["Light"]
+Switch light_1A_masterBed_closet "Iluminação quarto closet" <light>  (1A_masterBed, iluminacao)  ["Light"]
 
-Switch light_2A_escritorio       "Iluminação escritório"    (2A_escritorio, iluminacao)   ["Light"]
-Switch light_2A_sotao_1          "Iluminação sótão DR"      (2A_sotao, iluminacao)        ["Light"]
-Switch light_2A_sotao_2          "Iluminação sótão ES"      (2A_sotao, iluminacao)        ["Light"]
+Switch light_2A_escritorio       "Iluminação escritório"    <light>  (2A_escritorio, iluminacao)   ["Light"]
+Switch light_2A_sotao_1          "Iluminação sótão DR"      <light>  (2A_sotao, iluminacao)        ["Light"]
+Switch light_2A_sotao_2          "Iluminação sótão ES"      <light>  (2A_sotao, iluminacao)        ["Light"]
 
-Switch light_exterior_jardim_vr1      "Iluminação varanda 1"     (exterior_jardim, iluminacao)  ["Light"]
-Switch light_exterior_jardim_vr2      "Iluminação varanda 2"     (exterior_jardim, iluminacao)  ["Light"]
-Switch light_exterior_jardim_estrada  "Iluminação estrada 1"     (exterior_jardim, iluminacao)  ["Light"]
-Switch light_exterior_jardim_garagem  "Iluminação estrada 2(GR)" (exterior_jardim, iluminacao)  ["Light"]
-Switch light_exterior_garagem_gar     "Iluminação garagem"       (exterior_garagem, iluminacao)  ["Light"]
-Switch light_exterior_garagem_lav     "Iluminação lavandaria"    (exterior_garagem, iluminacao)  ["Light"]
-Switch light_exterior_garagem_ch      "Iluminação churrasqueira" (exterior_garagem, iluminacao)  ["Light"]
+Switch light_exterior_jardim_vr1      "Iluminação varanda 1"    <light>  (exterior_jardim, iluminacao)  ["Light"]
+Switch light_exterior_jardim_vr2      "Iluminação varanda 2"    <light>  (exterior_jardim, iluminacao)  ["Light"]
+Switch light_exterior_jardim_estrada  "Iluminação estrada 1"    <light>  (exterior_jardim, iluminacao)  ["Light"]
+Switch light_exterior_jardim_garagem  "Iluminação estrada 2(GR)"<light>  (exterior_jardim, iluminacao)  {channel="mysensors:light:5207d687:light_3_52:status"}
+Switch light_exterior_garagem_gar     "Iluminação garagem"      <light>  (exterior_garagem, iluminacao)  ["Light"]
+Switch light_exterior_garagem_lav     "Iluminação lavandaria"   <light>  (exterior_garagem, iluminacao)  ["Light"]
+Switch light_exterior_garagem_ch      "Iluminação churrasqueira"<light>  (exterior_garagem, iluminacao)  ["Light"]
 
 /* temperatura_humidade */
 Number temperatura_rc_sala      "Temperatura sala [%.1f °C]"        <temperature>   (rc_sala, temperatura)  {channel="mysensors:temperature:5207d687:temperature_1_1:temp"}
@@ -82,8 +82,8 @@ Number humidade_rc_sala         "Humidade relativa sala [%.0f %%]"  <humidity>  
 /* portas_janelas */
 Contact info_exterior_jardim_portao     "Portão de entrada estado [MAP(en.map):%s]" <garagedoor> (exterior_jardim, portas)  {channel="mysensors:door:5207d687:door_2_1:tripped"}
 Switch comando_exterior_jardim_portao   "Portão Entrada Abrir/Fechar"               <switch>     (exterior_jardim) {channel="mysensors:light:5207d687:light_2_2:status", expire="1s,command=OFF"}
-Contact info_exterior_garagem_Pgaragem   "Portão da garagem estado [MAP(en.map):%s]" <garagedoor> (exterior_garagem, portas)  /*{channel="mysensors:door:5207d687:door_2_1:tripped"}*/
-Switch comando_exterior_garagem_Pgaragem "Portão garagem Abrir/Fechar"               <switch>     (exterior_garagem) /*{channel="mysensors:light:5207d687:light_2_2:status", expire="1s,command=OFF"}*/
+Contact info_exterior_garagem_Pgaragem   "Portão da garagem estado [MAP(en.map):%s]" <garagedoor> (exterior_garagem, portas)  {channel="mysensors:door:5207d687:door_3_51:tripped"}
+Switch comando_exterior_garagem_Pgaragem "Portão garagem Abrir/Fechar"               <switch>     (exterior_garagem) {channel="mysensors:light:5207d687:light_3_50:status", expire="1s,command=OFF"}
 
 /* energia / diversos */
 Number potActiva    "Potência Activa [%.1f  W]"     <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:watt"}
@@ -95,3 +95,8 @@ Number current      "Currente [%.2f  A]"            <energy> (pMeter) {channel="
 
 Switch laura_online     "Laura Online"      <network>   {channel="network:pingdevice:be7e1b09:online"}
 Switch ricardo_online   "Ricardo Online"    <network>   {channel="network:pingdevice:d64834aa:online"}
+
+Image camSeg_1  { channel="ipcamera:ONVIF:71a9f201:image" }
+Switch camSeg_1_Updat "Atualizar" { channel="ipcamera:ONVIF:71a9f201:updateImageNow" }
+
+Switch aux_exterior_garagem "Comando AUX garagem" <switch> {channel="mysensors:light:5207d687:light_3_53:status"}
