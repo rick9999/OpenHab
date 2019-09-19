@@ -94,7 +94,7 @@ Number voltage      "Tensão [%.1f  V]"              <energy> (pMeter) {channel=
 Number current      "Currente [%.2f  A]"            <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:var3"}
 
 Switch laura_online     "Laura Online"      <network>   {channel="network:pingdevice:be7e1b09:online"}
-Switch ricardo_online   "Ricardo Online"    <network>   {channel="network:pingdevice:d64834aa:online"}
+Switch ricardo_online   "Ricardo Online"    <network>   {channel="network:pingdevice:70da4e5f:online"}
 
 Image camSeg_1  { channel="ipcamera:ONVIF:71a9f201:image" }
 Switch camSeg_1_Updat "Atualizar" { channel="ipcamera:ONVIF:71a9f201:updateImageNow" }
