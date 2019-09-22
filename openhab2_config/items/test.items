@@ -80,8 +80,8 @@ Number temperatura_rc_sala      "Temperatura sala [%.1f °C]"        <temperatur
 Number humidade_rc_sala         "Humidade relativa sala [%.0f %%]"  <humidity>      (rc_sala,humidade)      {channel="mysensors:humidity:5207d687:humidity_1_0:hum"}
 
 /* portas_janelas */
-Contact info_exterior_jardim_portao     "Portão de entrada estado [MAP(en.map):%s]" <garagedoor> (exterior_jardim, portas)  {channel="mysensors:door:5207d687:door_2_1:tripped"}
-Switch comando_exterior_jardim_portao   "Portão Entrada Abrir/Fechar"               <switch>     (exterior_jardim) {channel="mysensors:light:5207d687:light_2_2:status", expire="1s,command=OFF"}
+Contact info_exterior_jardim_portao     "Portão de entrada estado [MAP(en.map):%s]" <garagedoor> (exterior_jardim, portas)  {channel="mysensors:door:5207d687:door_2_2:tripped"}
+Switch comando_exterior_jardim_portao   "Portão Entrada Abrir/Fechar"               <switch>     (exterior_jardim) {channel="mysensors:light:5207d687:light_2_1:status", expire="1s,command=OFF"}
 Contact info_exterior_garagem_Pgaragem   "Portão da garagem estado [MAP(en.map):%s]" <garagedoor> (exterior_garagem, portas)  {channel="mysensors:door:5207d687:door_3_51:tripped"}
 Switch comando_exterior_garagem_Pgaragem "Portão garagem Abrir/Fechar"               <switch>     (exterior_garagem) {channel="mysensors:light:5207d687:light_3_50:status", expire="1s,command=OFF"}
 
@@ -97,6 +97,9 @@ Switch laura_online     "Laura Online"      <network>   {channel="network:pingde
 Switch ricardo_online   "Ricardo Online"    <network>   {channel="network:pingdevice:70da4e5f:online"}
 
 Image camSeg_1  { channel="ipcamera:ONVIF:71a9f201:image" }
+Image camSeg_2  {channel="ipcamera:ONVIF:ece1a899:image"}
 Switch camSeg_1_Updat "Atualizar" { channel="ipcamera:ONVIF:71a9f201:updateImageNow" }
+Switch camSeg_2_Updat "Atualizar" {channel="ipcamera:ONVIF:ece1a899:updateImageNow"}
+
 
 Switch aux_exterior_garagem "Comando AUX garagem" <switch> {channel="mysensors:light:5207d687:light_3_53:status"}
