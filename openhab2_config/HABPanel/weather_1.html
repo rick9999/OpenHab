@@ -1,0 +1,67 @@
+<div ng-init="ServerPath='../static'; IconSet='colorful'">
+<link rel="stylesheet" type="text/css" href="{{ServerPath}}/layouts/example.css" />
+</div>
+
+<div id="weather-location-name" align="left">
+	Brufe {{itemValue('LastUpdate') | date:'short'}} 
+</div>
+
+<table id="weather-table">
+	<tr>
+		<td rowspan="2"><img id="weather-icon" src="{{ServerPath}}/images/{{IconSet}}/{{itemValue('Condition').replace(' ','-') | lowercase }}.png"/></td>
+		<td id="weather-temp">{{'%.1f' | sprintf:itemValue('Temperature')}}</td>
+		<td id="weather-temp-sign">ºC</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<table id="weather-table-details">
+				<tr>
+					<td align="left"> Humidade:</td>
+					<td align="right"> {{'%.0f' | sprintf:itemValue('Humidity')}} %</td>
+					</tr>
+					<tr>
+   				<td align="left"> Precipitação:</td>
+					<td align="right"> {{'%.0f' | sprintf:itemValue('Precip_Probability')}} %</td>
+          </tr>
+					<tr>
+   				<td align="left"> Vento:</td>
+					<td align="right"> {{'%.0f' | sprintf:itemValue('Wind_Speed')}} km/h</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+  <td id="weather-table">{{itemValue('Condition_')}}</td>
+</table>
+<p/>
+<table id="weather-forecast-table">
+	<tr>
+		<td/>
+		<td>Hoje</td>
+		<td>{{itemValue('ObservationTime1') | date:'EEE'}}</td>
+		<td>{{itemValue('ObservationTime2') | date:'EEE'}}</td>
+	</tr>
+	<tr>
+		<td/>
+		<td>
+			<img src="{{ServerPath}}/images/{{IconSet}}/{{itemValue('Condition0').replace(' ','_') | lowercase }}.png"/>		
+		</td>
+		<td>
+			<img src="{{ServerPath}}/images/{{IconSet}}/{{itemValue('Condition1').replace(' ','-') | lowercase }}.png"/>
+		</td>
+		<td>
+			<img src="{{ServerPath}}/images/{{IconSet}}/{{itemValue('Condition2').replace(' ','-') | lowercase }}.png"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="col-xs-4" style="color:red">Max</td>
+		<td class="col-xs-4" style="color:red">{{'%.0f' | sprintf:itemValue('Temp_Max0')}} ºC</td>
+		<td class="col-xs-4" style="color:red">{{'%.0f' | sprintf:itemValue('Temp_Max1')}} ºC</td>
+		<td class="col-xs-4" style="color:red">{{'%.0f' | sprintf:itemValue('Temp_Max2')}} ºC</td>
+	</tr>
+	<tr>
+		<td class="col-xs-4" style="color:#0db9f0">Min</td>
+		<td class="col-xs-4" style="color:#0db9f0">{{'%.0f' | sprintf:itemValue('Temp_Min0')}} ºC</td>
+		<td class="col-xs-4" style="color:#0db9f0">{{'%.0f' | sprintf:itemValue('Temp_Min1')}} ºC</td>
+		<td class="col-xs-4" style="color:#0db9f0">{{'%.0f' | sprintf:itemValue('Temp_Min2')}} ºC</td>
+	</tr>
+</table>
