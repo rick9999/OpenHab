@@ -25,14 +25,235 @@ Group exterior_garagem    "Garagem"     <garage>    (exterior)
 Group estado
 Group pMeter
 
+/* Open Weather Map */
+
+Number:Temperature	Weather_OWM_Temperature		"Temperature [%.1f %unit%]" 	<temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:current#temperature"}
+Number:Dimensionless 	Weather_OWM_Humidity		"Humidity [%d %unit%]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:current#humidity"}
+Number:Speed    	Weather_OWM_Wind_Speed		"Windspeed [%.1f km/h]"			        {channel="openweathermap:weather-and-forecast:9e41433d:local:current#wind-speed"}
+String		Weather_OWM_Station_Name		"Station Name [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:station#name"}
+DateTime	Weather_OWM_ObservationTime		"Observation time [%1$tY-%1$tm-%1$td]"		{channel="openweathermap:weather-and-forecast:9e41433d:local:current#time-stamp"}
+String		Weather_OWM_Condition			"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:current#condition"}
+String		Weather_OWM_ConditionId			"ConditionId [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:current#condition-id"}
+Image		Weather_OWM_ConditionIcon		"Icon [%s]"				        {channel="openweathermap:weather-and-forecast:9e41433d:local:current#icon"}
+String		Weather_OWM_ConditionIconId		"IconId [%s]"			                {channel="openweathermap:weather-and-forecast:9e41433d:local:current#icon-id"}
+
+Number:Temperature	Weather_OWM_Temp0		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#temperature"}
+Number:Temperature	Weather_OWM_Temp1		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#temperature"}
+Number:Temperature	Weather_OWM_Temp2		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#temperature"}
+Number:Temperature	Weather_OWM_Temp3		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#temperature"}
+
+DateTime	Weather_OWM_Forecast_Time0		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time1		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time2		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#time-stamp"}
+DateTime	Weather_OWM_Forecast_Time3		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#time-stamp"}
+
+String		Weather_OWM_Condition0			"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#condition"}
+String		Weather_OWM_Condition1			"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#condition"}
+String		Weather_OWM_Condition2			"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#condition"}
+String		Weather_OWM_Condition3			"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#condition"}
+
+String		Weather_OWM_ConditionId0		"Icon [%s]"					{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#condition-id"}
+String		Weather_OWM_ConditionId1		"Icon [%s]"					{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#condition-id"}
+String		Weather_OWM_ConditionId2		"Icon [%s]"					{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#condition-id"}
+String		Weather_OWM_ConditionId3		"Icon [%s]"					{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#condition-id"}
+
+Number:Temperature	Weather_OWM_Temp_h3		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#temperature"}
+Number:Temperature	Weather_OWM_Temp_h6		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours06#temperature"}
+Number:Temperature	Weather_OWM_Temp_h9		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours09#temperature"}
+Number:Temperature	Weather_OWM_Temp_h12		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours12#temperature"}
+Number:Temperature	Weather_OWM_Temp_h15		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours15#temperature"}
+Number:Temperature	Weather_OWM_Temp_h18		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours18#temperature"}
+Number:Temperature	Weather_OWM_Temp_h21		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours21#temperature"}
+Number:Temperature	Weather_OWM_Temp_h24		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#temperature"}
+Number:Temperature	Weather_OWM_Temp_h27		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours27#temperature"}
+Number:Temperature	Weather_OWM_Temp_h30		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours30#temperature"}
+Number:Temperature	Weather_OWM_Temp_h33		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours33#temperature"}
+Number:Temperature	Weather_OWM_Temp_h36		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours36#temperature"}
+Number:Temperature	Weather_OWM_Temp_h39		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours39#temperature"}
+Number:Temperature	Weather_OWM_Temp_h42		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours42#temperature"}
+Number:Temperature	Weather_OWM_Temp_h45		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours45#temperature"}
+Number:Temperature	Weather_OWM_Temp_h48		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#temperature"}
+Number:Temperature	Weather_OWM_Temp_h51		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours51#temperature"}
+Number:Temperature	Weather_OWM_Temp_h54		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours54#temperature"}
+Number:Temperature	Weather_OWM_Temp_h57		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours57#temperature"}
+Number:Temperature	Weather_OWM_Temp_h60		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours60#temperature"}
+Number:Temperature	Weather_OWM_Temp_h63		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours63#temperature"}
+Number:Temperature	Weather_OWM_Temp_h66		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours66#temperature"}
+Number:Temperature	Weather_OWM_Temp_h69		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours69#temperature"}
+Number:Temperature	Weather_OWM_Temp_h72		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#temperature"}
+Number:Temperature	Weather_OWM_Temp_h75		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours75#temperature"}
+Number:Temperature	Weather_OWM_Temp_h78		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours78#temperature"}
+Number:Temperature	Weather_OWM_Temp_h81		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours81#temperature"}
+Number:Temperature	Weather_OWM_Temp_h84		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours84#temperature"}
+Number:Temperature	Weather_OWM_Temp_h87		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours87#temperature"}
+Number:Temperature	Weather_OWM_Temp_h90		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours90#temperature"}
+Number:Temperature	Weather_OWM_Temp_h93		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours93#temperature"}
+Number:Temperature	Weather_OWM_Temp_h96		"Temperature [%.1f %unit%]" <temperature>	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours96#temperature"}
+
+String		Weather_OWM_Condition_h3		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#condition"}
+String		Weather_OWM_Condition_h6		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours06#condition"}
+String		Weather_OWM_Condition_h9		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours09#condition"}
+String		Weather_OWM_Condition_h12		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours12#condition"}
+String		Weather_OWM_Condition_h15		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours15#condition"}
+String		Weather_OWM_Condition_h18		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours18#condition"}
+String		Weather_OWM_Condition_h21		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours21#condition"}
+String		Weather_OWM_Condition_h24		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#condition"}
+String		Weather_OWM_Condition_h27		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours27#condition"}
+String		Weather_OWM_Condition_h30		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours30#condition"}
+String		Weather_OWM_Condition_h33		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours33#condition"}
+String		Weather_OWM_Condition_h36		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours36#condition"}
+String		Weather_OWM_Condition_h39		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours39#condition"}
+String		Weather_OWM_Condition_h42		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours42#condition"}
+String		Weather_OWM_Condition_h45		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours45#condition"}
+String		Weather_OWM_Condition_h48		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#condition"}
+String		Weather_OWM_Condition_h51		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours51#condition"}
+String		Weather_OWM_Condition_h54		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours54#condition"}
+String		Weather_OWM_Condition_h57		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours57#condition"}
+String		Weather_OWM_Condition_h60		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours60#condition"}
+String		Weather_OWM_Condition_h63		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours63#condition"}
+String		Weather_OWM_Condition_h66		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours66#condition"}
+String		Weather_OWM_Condition_h69		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours69#condition"}
+String		Weather_OWM_Condition_h72		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#condition"}
+String		Weather_OWM_Condition_h75		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours75#condition"}
+String		Weather_OWM_Condition_h78		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours78#condition"}
+String		Weather_OWM_Condition_h81		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours81#condition"}
+String		Weather_OWM_Condition_h84		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours84#condition"}
+String		Weather_OWM_Condition_h87		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours87#condition"}
+String		Weather_OWM_Condition_h90		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours90#condition"}
+String		Weather_OWM_Condition_h93		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours93#condition"}
+String		Weather_OWM_Condition_h96		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours96#condition"}
+
+String		Weather_OWM_ConditionId_h3		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#condition-id"}
+String		Weather_OWM_ConditionId_h6		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours06#condition-id"}
+String		Weather_OWM_ConditionId_h9		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours09#condition-id"}
+String		Weather_OWM_ConditionId_h12		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours12#condition-id"}
+String		Weather_OWM_ConditionId_h15		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours15#condition-id"}
+String		Weather_OWM_ConditionId_h18		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours18#condition-id"}
+String		Weather_OWM_ConditionId_h21		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours21#condition-id"}
+String		Weather_OWM_ConditionId_h24		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#condition-id"}
+String		Weather_OWM_ConditionId_h27		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours27#condition-id"}
+String		Weather_OWM_ConditionId_h30		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours30#condition-id"}
+String		Weather_OWM_ConditionId_h33		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours33#condition-id"}
+String		Weather_OWM_ConditionId_h36		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours36#condition-id"}
+String		Weather_OWM_ConditionId_h39		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours39#condition-id"}
+String		Weather_OWM_ConditionId_h42		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours42#condition-id"}
+String		Weather_OWM_ConditionId_h45		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours45#condition-id"}
+String		Weather_OWM_ConditionId_h48		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#condition-id"}
+String		Weather_OWM_ConditionId_h51		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours51#condition-id"}
+String		Weather_OWM_ConditionId_h54		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours54#condition-id"}
+String		Weather_OWM_ConditionId_h57		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours57#condition-id"}
+String		Weather_OWM_ConditionId_h60		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours60#condition-id"}
+String		Weather_OWM_ConditionId_h63		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours63#condition-id"}
+String		Weather_OWM_ConditionId_h66		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours66#condition-id"}
+String		Weather_OWM_ConditionId_h69		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours69#condition-id"}
+String		Weather_OWM_ConditionId_h72		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#condition-id"}
+String		Weather_OWM_ConditionId_h75		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours75#condition-id"}
+String		Weather_OWM_ConditionId_h78		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours78#condition-id"}
+String		Weather_OWM_ConditionId_h81		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours81#condition-id"}
+String		Weather_OWM_ConditionId_h84		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours84#condition-id"}
+String		Weather_OWM_ConditionId_h87		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours87#condition-id"}
+String		Weather_OWM_ConditionId_h90		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours90#condition-id"}
+String		Weather_OWM_ConditionId_h93		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours93#condition-id"}
+String		Weather_OWM_ConditionId_h96		"Condition [%s]"				{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours96#condition-id"}
+
+DateTime	Weather_OWM_DateTime_h3		    	"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours03#time-stamp"}
+DateTime	Weather_OWM_DateTime_h6		    	"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours06#time-stamp"}
+DateTime	Weather_OWM_DateTime_h9		   	"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours09#time-stamp"}
+DateTime	Weather_OWM_DateTime_h12		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours12#time-stamp"}
+DateTime	Weather_OWM_DateTime_h15		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours15#time-stamp"}
+DateTime	Weather_OWM_DateTime_h18		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours18#time-stamp"}
+DateTime	Weather_OWM_DateTime_h21		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours21#time-stamp"}
+DateTime	Weather_OWM_DateTime_h24		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours24#time-stamp"}
+DateTime	Weather_OWM_DateTime_h27		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours27#time-stamp"}
+DateTime	Weather_OWM_DateTime_h30		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours30#time-stamp"}
+DateTime	Weather_OWM_DateTime_h33		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours33#time-stamp"}
+DateTime	Weather_OWM_DateTime_h36		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours36#time-stamp"}
+DateTime	Weather_OWM_DateTime_h39		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours39#time-stamp"}
+DateTime	Weather_OWM_DateTime_h42		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours42#time-stamp"}
+DateTime	Weather_OWM_DateTime_h45		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours45#time-stamp"}
+DateTime	Weather_OWM_DateTime_h48		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours48#time-stamp"}
+DateTime	Weather_OWM_DateTime_h51		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours51#time-stamp"}
+DateTime	Weather_OWM_DateTime_h54		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours54#time-stamp"}
+DateTime	Weather_OWM_DateTime_h57		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours57#time-stamp"}
+DateTime	Weather_OWM_DateTime_h60		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours60#time-stamp"}
+DateTime	Weather_OWM_DateTime_h63		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours63#time-stamp"}
+DateTime	Weather_OWM_DateTime_h66		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours66#time-stamp"}
+DateTime	Weather_OWM_DateTime_h69		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours69#time-stamp"}
+DateTime	Weather_OWM_DateTime_h72		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours72#time-stamp"}
+DateTime	Weather_OWM_DateTime_h75		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours75#time-stamp"}
+DateTime	Weather_OWM_DateTime_h78		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours78#time-stamp"}
+DateTime	Weather_OWM_DateTime_h81		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours81#time-stamp"}
+DateTime	Weather_OWM_DateTime_h84		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours84#time-stamp"}
+DateTime	Weather_OWM_DateTime_h87		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours87#time-stamp"}
+DateTime	Weather_OWM_DateTime_h90		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours90#time-stamp"}
+DateTime	Weather_OWM_DateTime_h93		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours93#time-stamp"}
+DateTime	Weather_OWM_DateTime_h96		"Forecast time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"	{channel="openweathermap:weather-and-forecast:9e41433d:local:forecastHours96#time-stamp"}
+
+
 /* weather */
 Group weather_chart
-Number weather_temperature      "Temperatura Exterior [%.1f °C]"    <temperature> (weather, weather_chart)
+Number weather_temperature      "Temperatura actual [%.1f °C]"    <temperature> (weather, weather_chart) {weather="locationId=home, type=temperature, property=current"}
 Number weather_temp_max         "Máxima [%.1f °C]"                  <temperature> (weather, weather_chart)
 Number weather_temp_min         "Mínima [%.1f °C]"                  <temperature> (weather, weather_whart)
 Number weather_chart_period     "Gráfico"
 DateTime weather_lastUpdate     "Última Actualização [%1$ta %1$tR]" <clock>
 
+// atmosphere
+Number   Humidity    	  "Humidity [%d %%]"    <humidity>  {weather="locationId=home, type=atmosphere, property=humidity"}
+Number   Visibility    	  "Visibility [%.2f km]"  {weather="locationId=home, type=atmosphere, property=visibility"}
+Number   Pressure    	  "Pressure [%.2f mb]"  <pressure>  {weather="locationId=home, type=atmosphere, property=pressure"}
+String   Pressure_Trend   "Pressuretrend [%s]"    {weather="locationId=home, type=atmosphere, property=pressureTrend"}
+Number   Ozone            "Ozone [%d ppm]"    	  {weather="locationId=home, type=atmosphere, property=ozone"}
+Number   UV_Index         "UV Index"              {weather="locationId=home, type=atmosphere, property=uvIndex, scale=0"}
+
+// clouds
+Number   Clouds   "Clouds [%.0f %%]"   {weather="locationId=home, type=clouds, property=percent"}
+
+// condition
+String   Condition        "Condition [%s]"      {weather="locationId=home, type=condition, property=commonId"}
+String   Condition0	      "Condition [%s]"      {weather="locationId=home, forecast=0, type=condition, property=commonId"}
+String   Condition1       "Condition [%s]"      {weather="locationId=home, forecast=1, type=condition, property=commonId"}
+String   Condition2       "Condition [%s]"      {weather="locationId=home, forecast=2, type=condition, property=commonId"}
+String   Condition_       "Condition [%s]"      {weather="locationId=home, type=condition, property=text"}
+String   Condition_0	  "Condition [%s]"      {weather="locationId=home, forecast=0, type=condition, property=text"}
+String   Condition_1      "Condition [%s]"      {weather="locationId=home, forecast=1, type=condition, property=text"}
+String   Condition_2      "Condition [%s]"      {weather="locationId=home, forecast=2, type=condition, property=text"}
+String   Condition_ID     "Condition id [%s]"   {weather="locationId=home, type=condition, property=id"}
+DateTime ObservationTime  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   {weather="locationId=home, type=condition, property=observationTime"}
+DateTime ObservationTime1  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   {weather="locationId=home, forecast=1 ,type=condition, property=observationTime"}
+DateTime ObservationTime2  "Observation time [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   {weather="locationId=home, forecast=2 ,type=condition, property=observationTime"}
+DateTime LastUpdate       "Ultima actualização [%1$td.%1$tm.%1$tY %1$tH:%1$tM]"        {weather="locationId=home, type=condition, property=lastUpdate"}
+String   CommonId         "Common id [%s]"      {weather="locationId=home, type=condition, property=commonId"}
+
+// precipitation
+Number   Rain          "Rain [%.2f mm/h]"   {weather="locationId=home, type=precipitation, property=rain"}
+Number   Snow          "Snow [%.2f mm/h]"   {weather="locationId=home, type=precipitation, property=snow"}
+Number   Precip_Probability   "Precip probability [%d %%]"   {weather="locationId=home, type=precipitation, property=probability"}
+
+// temperature
+Number   Temperature      "Temperature [%.2f °C]"       {weather="locationId=home, type=temperature, property=current"}
+Number   Temp_Feel        "Temperature feel [%.2f °C]"  {weather="locationId=home, type=temperature, property=feel"}
+Number   Temp_Dewpoint    "Dewpoint [%.2f °C]"          {weather="locationId=home, type=temperature, property=dewpoint"}
+
+// min and max values only available in forecasts
+Number   Temp_Min0         "Temperatura min [%.1f °C]"   {weather="locationId=home, forecast=0, type=temperature, property=min"}
+Number   Temp_Max0         "Temperatura max [%.1f °C]"   {weather="locationId=home, forecast=0, type=temperature, property=max"}
+Number   Temp_Min1         "Temperature min [%.2f °C]"   {weather="locationId=home, forecast=1, type=temperature, property=min"}
+Number   Temp_Max1         "Temperature max [%.2f °C]"   {weather="locationId=home, forecast=1, type=temperature, property=max"}
+Number   Temp_Min2         "Temperature min [%.2f °C]"   {weather="locationId=home, forecast=2, type=temperature, property=min"}
+Number   Temp_Max2         "Temperature max [%.2f °C]"   {weather="locationId=home, forecast=2, type=temperature, property=max"}
+String   Temp_MinMax      "Min/Max [%s °C]"             {weather="locationId=home, type=temperature, property=minMax"}
+
+// wind
+Number   Wind_Speed           "Velocidade do vento [%.1f km/h]"    {weather="locationId=home, type=wind, property=speed"}
+Number   Wind_Speed_Beaufort  "Windspeed Beaufort [%d]"  {weather="locationId=home, type=wind, property=speed, unit=beaufort"}
+String	 Wind_Direction       "Wind direction [%s]"      {weather="locationId=home, type=wind, property=direction"}
+Number   Wind_Degree          "Wind degree [%.0f °]"     {weather="locationId=home, type=wind, property=degree"}
+Number   Wind_Gust            "Wind gust [%.2f km/h]"    {weather="locationId=home, type=wind, property=gust"}
+Number   Wind_Gust_Beaufort   "Wind gust Beaufort [%d]"  {weather="locationId=home, type=wind, property=gust, unit=beaufort"}
+Number   Wind_Chill           "Wind chill [%.2f °C]"     {weather="locationId=home, type=wind, property=chill"}
+
+//Informação Astronomica
 Number:Angle positionElevation  "Elevation"         {channel="astro:sun:local:position#elevation"}
 Number:Intensity radiationTotal "Total radiation"   {channel="astro:sun:local:radiation#total"}
 DateTime daylightStart          "Start time"        {channel="astro:sun:local:daylight#start"}
@@ -43,8 +264,12 @@ String phaseName                "Moon phase name"   {channel="astro:moon:local:p
 /* grupos activos */
 Group:Switch:OR(ON, OFF)        iluminacao      "Toda a iluminação [(%d)]"
 Group:Number:AVG                temperatura     "Temperatura média [%.1f °C]"           <temperature>   (estado)
+Group:Number:AVG                temperatura_i   "Temperatura interior média [%.1f °C]"  <temperature>
 Group:Number:AVG                humidade        "Humidade relativa média [%.0f %%]"     <humidity>      (estado)
+Group:Number:AVG                humidade_i      "HR interior média [%.0f %%]"           <humidity>
+Group:Number:MIN                bateriaMin      "Valor mais baixo [%.0f %%]"            <batterylevel>
 Group:Contact:OR(OPEN, CLOSED)  portas          "Portas/janelas abertas [(%d)]"         <contact>
+Group:Number:COUNT("ON")        presence        "Online [%s]"                       <parents_3_3>	(estado)
 
 /* iluminação */
 Dimmer light_rc_sala_1          "Iluminação sala de estar"           (rc_sala, iluminacao)       ["Light", "Lighting"]
@@ -70,36 +295,54 @@ Switch light_2A_sotao_2          "Iluminação sótão ES"      <light>  (2A_sot
 Switch light_exterior_jardim_vr1      "Iluminação varanda 1"    <light>  (exterior_jardim, iluminacao)  ["Light"]
 Switch light_exterior_jardim_vr2      "Iluminação varanda 2"    <light>  (exterior_jardim, iluminacao)  ["Light"]
 Switch light_exterior_jardim_estrada  "Iluminação estrada 1"    <light>  (exterior_jardim, iluminacao)  ["Light"]
-Switch light_exterior_jardim_garagem  "Iluminação estrada 2(GR)"<light>  (exterior_jardim, iluminacao)  {channel="mysensors:light:5207d687:light_3_52:status"}
+Switch light_exterior_jardim_garagem  "Iluminação estrada 2(GR)"<light>  (exterior_jardim, iluminacao)  {channel="mysensors:light:392e03a9:light_3_52:status"}
 Switch light_exterior_garagem_gar     "Iluminação garagem"      <light>  (exterior_garagem, iluminacao)  ["Light"]
 Switch light_exterior_garagem_lav     "Iluminação lavandaria"   <light>  (exterior_garagem, iluminacao)  ["Light"]
 Switch light_exterior_garagem_ch      "Iluminação churrasqueira"<light>  (exterior_garagem, iluminacao)  ["Light"]
 
 /* temperatura_humidade */
-Number temperatura_rc_sala      "Temperatura sala [%.1f °C]"        <temperature>   (rc_sala, temperatura)  {channel="mysensors:temperature:5207d687:temperature_1_1:temp"}
-Number humidade_rc_sala         "Humidade relativa sala [%.0f %%]"  <humidity>      (rc_sala,humidade)      {channel="mysensors:humidity:5207d687:humidity_1_0:hum"}
+Number temperatura_rc_sala    "Temperatura sala [%.1f °C]"              <temperature>   (rc_sala, temperatura, temperatura_i)  {channel="mysensors:temperature:392e03a9:temperature_1_1:temp"}
+Number humidade_rc_sala       "Humidade relativa sala [%.0f %%]"        <humidity>      (rc_sala, humidade, humidade_i)        {channel="mysensors:humidity:392e03a9:humidity_1_0:hum"}
+Number temperatura_exterior   "Temperatura exterior [%.1f °C]"          <temperature>   (exterior, temperatura)                {channel="mysensors:temperature:392e03a9:temperature_10_1:temp"}
+Number humidade_exterior      "Humidade relativa exterior [%.0f %%]"    <humidity>      (exterior, humidade)                   {channel="mysensors:humidity:392e03a9:humidity_10_0:hum"}
+Number temperatura_1          "Temperatura Inês [%.1f °C]"              <temperature>   (1A_ines, temperatura, temperatura_i)  {channel="mysensors:temperature:392e03a9:temperature_5_1:temp"}
+Number humidade_1             "Humidade relativa Inês [%.0f %%]"        <humidity>      (1A_ines, humidade, humidade_i)        {channel="mysensors:humidity:392e03a9:humidity_5_0:hum"}
+
 
 /* portas_janelas */
-Contact info_exterior_jardim_portao     "Portão de entrada estado [MAP(en.map):%s]" <garagedoor> (exterior_jardim, portas)  {channel="mysensors:door:5207d687:door_2_2:tripped"}
-Switch comando_exterior_jardim_portao   "Portão Entrada Abrir/Fechar"               <switch>     (exterior_jardim) {channel="mysensors:light:5207d687:light_2_1:status", expire="1s,command=OFF"}
-Contact info_exterior_garagem_Pgaragem   "Portão da garagem estado [MAP(en.map):%s]" <garagedoor> (exterior_garagem, portas)  {channel="mysensors:door:5207d687:door_3_51:tripped"}
-Switch comando_exterior_garagem_Pgaragem "Portão garagem Abrir/Fechar"               <switch>     (exterior_garagem) {channel="mysensors:light:5207d687:light_3_50:status", expire="1s,command=OFF"}
+Contact info_exterior_jardim_portao     "Portão de entrada estado [MAP(en.map):%s]" <garagedoor> (exterior_jardim, portas)  {channel="mysensors:door:392e03a9:door_2_2:tripped"}
+Switch comando_exterior_jardim_portao   "Portão Entrada Abrir/Fechar"               <switch>     (exterior_jardim) {channel="mysensors:light:392e03a9:light_2_1:status", expire="1s,command=OFF"}
+Contact info_exterior_garagem_Pgaragem   "Portão da garagem estado [MAP(en.map):%s]" <garagedoor> (exterior_garagem, portas)  {channel="mysensors:door:392e03a9:door_3_51:tripped"}
+Switch comando_exterior_garagem_Pgaragem "Portão garagem Abrir/Fechar"               <switch>     (exterior_garagem) {channel="mysensors:light:392e03a9:light_3_50:status", expire="1s,command=OFF"}
 
 /* energia / diversos */
-Number potActiva    "Potência Activa [%.1f  W]"     <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:watt"}
-Number energia      "Energia [%.2f  kWh]"           <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:kwh"}
-Number potAparente  "Potência Aparente [%.1f  VA]"  <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:va"}
-Number powerFactor  "Factor Potência [%.2f  %%]"    <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:power-factor"}
-Number voltage      "Tensão [%.1f  V]"              <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:var2"}
-Number current      "Currente [%.2f  A]"            <energy> (pMeter) {channel="mysensors:power:5207d687:power_4_1:var3"}
+Number potActiva    "Potência Activa [%.1f  W]"     <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:watt"}
+Number energia      "Energia [%.2f  kWh]"           <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:kwh"}
+Number potAparente  "Potência Aparente [%.1f  VA]"  <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:va"}
+Number powerFactor  "Factor Potência [%.2f  %%]"    <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:power-factor"}
+Number voltage      "Tensão [%.1f  V]"              <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:var2"}
+Number current      "Currente [%.2f  A]"            <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:var3"}
 
-Switch laura_online     "Laura Online"      <network>   {channel="network:pingdevice:be7e1b09:online"}
-Switch ricardo_online   "Ricardo Online"    <network>   {channel="network:pingdevice:70da4e5f:online"}
+Switch Laura     "Laura Online"                 <network>  (presence) {channel="network:pingdevice:fa271777:online"}
+Switch Ricardo_Huawei   "Ricardo Online" <network>  (presence) {channel="network:pingdevice:c0aefa64:online"}
+Switch Mi_Box   "Mi Box"	                <network>  (presence) {channel="network:pingdevice:8acae2ed:online"}
 
-Image camSeg_1  { channel="ipcamera:ONVIF:71a9f201:image" }
-Image camSeg_2  {channel="ipcamera:ONVIF:ece1a899:image"}
-Switch camSeg_1_Updat "Atualizar" { channel="ipcamera:ONVIF:71a9f201:updateImageNow" }
-Switch camSeg_2_Updat "Atualizar" {channel="ipcamera:ONVIF:ece1a899:updateImageNow"}
+Image camSeg_1  { channel="ipcamera:ONVIF:5c450b61:image" }
+Image camSeg_2  {channel="ipcamera:ONVIF:de1ae9e7:image"}
+Switch camSeg_1_Updat "Atualizar" { channel="ipcamera:ONVIF:5c450b61:updateImageNow", expire="5s,command=OFF"}
+Switch camSeg_2_Updat "Atualizar" {channel="ipcamera:ONVIF:de1ae9e7:updateImageNow"}
 
+Switch aux_exterior_garagem "Comando AUX garagem" <switch>      {channel="mysensors:light:392e03a9:light_3_53:status"}
+Switch comando_sonoff1      "Sonoff 1"            <switch>      {channel="mqtt:topic:31778812:sonoff-7484_switch"}
+String info_sonoff_1        "Sonoff 1 estado [MAP(en.map):%s]" <energy>  {channel="mqtt:topic:31778812:sonoff_status"}
 
-Switch aux_exterior_garagem "Comando AUX garagem" <switch> {channel="mysensors:light:5207d687:light_3_53:status"}
+/* Xiaomi */
+Switch Motion "Motion status"          <motion> (seguranca, pir)  {channel="mihome:sensor_motion_aq2:158d000360151b:motion"}
+Number Illumination "Illumination"      {channel="mihome:sensor_motion_aq2:158d000360151b:illumination"}
+Switch LowBattery "Low battery"         {channel="mihome:sensor_motion_aq2:158d000360151b:lowBattery"}
+
+/* Baterias */
+Number MiMotionSensor_BatteryLevel_1     "Sensor movimento 1"       <batterylevel>  (bateria, bateriaMin)  {channel="mihome:sensor_motion:158d000446a076:batteryLevel"}
+Number MiMotionSensor_BatteryLevel_2     "Sensor movimento escadas" <batterylevel>  (bateria, bateriaMin)  {channel="mihome:sensor_motion_aq2:158d000360151b:batteryLevel"}
+Number TempHum_Exterior_BatteryLevel     "Sensor temp exterior"     <batterylevel>  (bateria, bateriaMin)  {channel="mysensors:temperature:392e03a9:temperature_10_1:battery"}
+Number TempHum_1_BatteryLevel            "Sensor temp 1"            <batterylevel>  (bateria, bateriaMin)  {channel="mysensors:temperature:392e03a9:temperature_5_1:battery"}
