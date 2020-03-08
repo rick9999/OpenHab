@@ -333,23 +333,23 @@ Switch camSeg_1_Updat "Atualizar"   {channel="ipcamera:ONVIF:5c450b61:updateImag
 Switch camSeg_2_Updat "Atualizar"   {channel="ipcamera:ONVIF:de1ae9e7:updateImageNow", expire="10s,command=OFF"}
 
 Switch aux_exterior_garagem "Comando AUX garagem" <switch>      {channel="mysensors:light:392e03a9:light_3_53:status"}
-Switch comando_sonoff1      "Sonoff 1"            <switch>      {channel="mqtt:topic:31778812:sonoff-7484_switch"}
+Switch comando_sonoff1      "Sonoff 1"            <switch>      {channel="mqtt:topic:31778812:sonoff-7484_switch", autoupdate="true"}
 String info_sonoff_1        "Sonoff 1 estado [MAP(en.map):%s]" <energy>  {channel="mqtt:topic:31778812:sonoff_status"}
 
 /* Xiaomi */
 Switch MiMotionSensor_2_Motion       "Motion status_escadas"    <motion>     (seguranca, pir)  {channel="mihome:sensor_motion_aq2:158d000360151b:motion"}
 Number MiMotionSensor_2_Illumination "Illumination_escadas"     <sun>        (seguranca)       {channel="mihome:sensor_motion_aq2:158d000360151b:illumination"}
 Switch MiMotionSensor_2_LowBattery   "Low battery_escadas"      <lowbattery> (seguranca)       {channel="mihome:sensor_motion_aq2:158d000360151b:lowBattery"}
-DateTime MiMotionSensor_2_LastMotion "Last activity_escadas"    <time>       (seguranca)       {channel="mihome:sensor_motion_aq2:158d000360151b:lastMotion"}
+DateTime MiMotionSensor_2_LastMotion "Last activity_escadas"	<time>       (seguranca)       {channel="mihome:sensor_motion_aq2:158d000360151b:lastMotion"}
 Switch MiMotionSensor_1_Motion       "Motion status_entrada"    <motion>     (seguranca, pir)  {channel="mihome:sensor_motion:158d000446a076:motion"}
 Switch MiMotionSensor_1_LowBattery   "Low battery_entrada"      <lowbattery> (seguranca)       {channel="mihome:sensor_motion:158d000446a076:lowBattery"}
-DateTime MiMotionSensor_1_LastMotion "Last activity_entrada"    <time>       (seguranca)       {channel="mihome:sensor_motion:158d000446a076:lastMotion"}
+DateTime MiMotionSensor_1_LastMotion "Last activity_entrada"	<time>       (seguranca)       {channel="mihome:sensor_motion:158d000446a076:lastMotion"}
 Dimmer MiGateway_Brightness          "Gateway Brightness"       <slider>     (gateway)         {channel="mihome:gateway:04cf8ca11c59:brightness"}
 Number MiGateway_Illumination        "Gateway Illumination"     <sun>        (gateway)         {channel="mihome:gateway:04cf8ca11c59:illumination"}
-Color MiGateway_Color                "Gateway Color"            <colorpicker> (gateway)        {channel="mihome:gateway:04cf8ca11c59:color"}
-Dimmer MiGateway_ColorTemperature    "Gateway Color temp"       <slider>      (gateway)        {channel="mihome:gateway:04cf8ca11c59:colorTemperature"}
+Color MiGateway_Color                "Gateway Color"            <rgb> (gateway)        {channel="mihome:gateway:04cf8ca11c59:color"}
+Dimmer MiGateway_ColorTemperature    "Gateway Color temp"       <heating>      (gateway)        {channel="mihome:gateway:04cf8ca11c59:colorTemperature"}
 Switch MiGateway_EnableSound         "Gateway EnableSound"      <soundvolume_mute> (gateway)   {channel="mihome:gateway:04cf8ca11c59:enableSound"}
-Number MiGateway_Sound               "Gateway Sound selector"   <player>      (gateway)        {channel="mihome:gateway:04cf8ca11c59:sound"}
+Number MiGateway_Sound               "Gateway Sound selector"   <soundvolume-0>      (gateway)        {channel="mihome:gateway:04cf8ca11c59:sound"}
 Dimmer MiGateway_Volume              "Gateway Sound volume"     <soundvolume> (gateway)        {channel="mihome:gateway:04cf8ca11c59:volume"}
 
 /* Baterias */
