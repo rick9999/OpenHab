@@ -1,0 +1,16 @@
+Strategies {
+	// CronExpressions are "seconds, minutes, hours, day-of-month, month, day-of-week, year (optional)"
+        // ranges like 30-45 or MON-FRI can be used, and wildcards like * mean every value for this field
+        // 0/15 type increments can be used, 10,35,55 is a list, and ? means 'no specific value'
+
+	everyMinute	: "0 * * * * ?"
+	every5Minutes	: "0 0/5 * * * ?"
+	everyHour	: "0 0 * * * ?"
+	everyDay	: "0 0 0 * * ?" 
+}
+
+Items {
+    temperatura*, humidade*	: strategy = every5Minutes, everyHour, everyDay
+    pMeter*	: strategy = everyMinute, everyHour, everyDay
+    //Presence_Phone      : strategy = everyChange
+}

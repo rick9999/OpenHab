@@ -1,0 +1,8 @@
+Bridge mysensors:bridge-eth:gateway [ ipAddress="127.0.0.1", tcpPort=5003, sendDelay=200 ] {
+        light           all_zones       "Todas zonas"   [ nodeId=15, childId=0 ]
+        rgbLight        zone1           "Zona 1"        [ nodeId=15, childId=1 ]
+        rgbLight        zone2           "Zona 2"        [ nodeId=15, childId=2 ]
+        rgbLight        zone3           "Zona 3"        [ nodeId=15, childId=3 ]
+        rgbLight        zone4           "Zona 4"        [ nodeId=15, childId=4 ]
+        rgbLight        zone5           "Zona 5"        [ nodeId=15, childId=5 ]
+  }

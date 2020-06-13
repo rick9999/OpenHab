@@ -1,0 +1,17 @@
+var Timer myTimer = null
+
+rule "Iluminacao"
+when
+    Item info_exterior_jardim_portao changed to OPEN
+then
+    comando_sonoff1.sendCommand(ON)
+    var gatewaylux = MiGateway_Illumination.state as Number
+    if(gatewaylux  < 400  ) {
+        light_exterior_jardim_garagem.sendCommand(ON)   
+    }
+    myTimer = createTimer(now.plusSeconds(30)) [|
+    comando_sonoff1.sendCommand(OFF)
+    light_exterior_jardim_garagem.sendCommand(OFF)
+    myTimer = null
+    ]
+end
