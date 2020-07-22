@@ -31,7 +31,9 @@ import java.util.ArrayList
 // -------------------- part of config -----------------------------------------------------------------------
 
 val HashMap<String,ArrayList<String>> timePicker = newHashMap(
-    "TransferItem1" -> newArrayList('SprinklerZone'))
+    "TransferItem1" -> newArrayList('SprinklerZone'),
+    "TransferItem2" -> newArrayList('ActividadesProgramadas')
+    )
 
 // -------------------- end of config ------------------------------------------------------------------------
 
@@ -77,7 +79,7 @@ val Procedures$Procedure2<String,String> persistSwitchState = [ currSwitchPlanNa
 rule "timeLine picker 1"
 when
   Member of gTimepicker changed or
-//  Time cron "0/15 * * ? * * *" or            // for debug, trigger eatch 15 seconds
+  // Time cron "0/15 * * ? * * *"             // for debug, trigger eatch 15 seconds
   Time cron "0 0/15 * 1/1 * ? *"
 then
   var Number currTimeInterval = (now.getMinuteOfDay() / 15).intValue
@@ -195,9 +197,6 @@ when
 then
   
   switch SprinklerZone {
-    
-
-	
     case SprinklerZone.state == "Zona1" : {
       // activate zone 1
 	  logInfo("Zone1","Turning on Zone 1")
@@ -233,12 +232,42 @@ then
 	  //SprinklerSystemZone4.sendCommand(ON)
     zone5_s.sendCommand(ON)
     }
-	case SprinklerZone.state == "OFF" : {
+    case SprinklerZone.state == "Lago" : {
+      // activate Bomba lago
+	  logInfo("Lago-Bomba","Turning on Lago")
+	  //onHours4.sendCommand(0)
+	  //SprinklerSystemZone4.sendCommand(ON)
+    }
+	case SprinklerZone.state == "Off" : {
 	  // turn off zones
 	  logInfo("Zone","Turning off Zones")
 	  Valves.members.forEach[
 	  sendCommand(OFF)
 	  ]
+	 }
+  } 
+end
+
+rule "Actividades Programadas"
+when
+  Item ActividadesProgramadas received command
+then
+  
+  switch ActividadesProgramadas {
+    case ActividadesProgramadas.state == "Lago_Bomba" : {
+	  logInfo("Lago_Bomba","Turning on Lago_Bomba")
+    comando_sonoff1.sendCommand(ON)
+    }
+    case ActividadesProgramadas.state == "Lago_Iluminação" : {
+	  logInfo("Lago_Iluminação","Turning on Lago_Iluminação")
+    //zone2_s.sendCommand(ON)
+    }
+	case ActividadesProgramadas.state == "Off" : {
+	  // turn off all devices
+	  logInfo("OFF","Turning off all devices")
+    Devices.members.forEach[
+      sendCommand(OFF)
+    ]
 	 }
   }
   
