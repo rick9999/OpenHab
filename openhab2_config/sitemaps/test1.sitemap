@@ -15,6 +15,12 @@ sitemap test1 label="Casa Brufe"{
             Text item=XiaomiMiMotionSensor_LastActivityDateTime label="Last activity_entrada [%s]" icon="time"
             }
         }
+        Text label="Rega activa  -  Sector 1" icon="water" visibility=[zone1_s=="ON"]
+        Text label="Rega activa  -  Sector 2" icon="water" visibility=[zone2_s=="ON"]
+        Text label="Rega activa  -  Sector 3" icon="water" visibility=[zone3_s=="ON"]
+        Text label="Rega activa  -  Sector 4" icon="water" visibility=[zone4_s=="ON"]
+        Text label="Rega activa  -  Sector 5" icon="water" visibility=[zone5_s=="ON"]
+        Text label="Lago - Bomba de circulação activada" icon="flow" visibility=[comando_sonoff1=="ON"]
     }
     Frame label="Controlo"{
 	Text label="Portões" icon="garagedoor"{    
@@ -59,13 +65,15 @@ sitemap test1 label="Casa Brufe"{
             }
             Frame label="Evolução térmica"{
                 Switch item=weather_chart_period label="Temp exterior" icon="chart" mappings=[0="Hora", 1="Dia", 2="Semana"]
-                Chart item=temperatura_exterior period=h refresh=2000 visibility=[weather_chart_period==0, weather_chart_period=="NULL"] legend=false
-                Chart item=temperatura_exterior period=D refresh=2000 visibility=[weather_chart_period==1] legend=false
-                Chart item=temperatura_exterior period=W refresh=2000 visibility=[weather_chart_period==2] legend=false
+                Chart item=temperatura_exterior period=h refresh=2000 visibility=[weather_chart_period==0, weather_chart_period=="NULL"] legend=false service="influxdb"
+                Chart item=temperatura_exterior period=D refresh=2000 visibility=[weather_chart_period==1] legend=false service="influxdb"
+                Chart item=temperatura_exterior period=W refresh=2000 visibility=[weather_chart_period==2] legend=false service="influxdb"
                 Text label="Temp interior" icon="chart"
-                Chart item=temperatura_rc_sala period=h refresh=2000 visibility=[weather_chart_period==0, weather_chart_period=="NULL"] legend=false
-                Chart item=temperatura_rc_sala period=D refresh=2000 visibility=[weather_chart_period==1] legend=false
-                Chart item=temperatura_rc_sala period=W refresh=2000 visibility=[weather_chart_period==2] legend=false
+                Chart item=temperatura_rc_sala period=h refresh=2000 visibility=[weather_chart_period==0, weather_chart_period=="NULL"] legend=false service="influxdb"
+                Chart item=temperatura_rc_sala period=D refresh=2000 visibility=[weather_chart_period==1] legend=false service="influxdb"
+                Chart item=temperatura_rc_sala period=W refresh=2000 visibility=[weather_chart_period==2] legend=false service="influxdb"
+                Webview url="http://192.168.1.101:3000/d-solo/jEWBLWRgz/temphumid?orgId=1&refresh=15m&from=1595347943656&to=1595434343656&panelId=2&theme=light" label="Temperatura" icon="chart" height=10
+                Webview url="http://192.168.1.101:3000/d-solo/jEWBLWRgz/temphumid?orgId=1&refresh=15m&from=1595348208611&to=1595434608611&panelId=16&theme=light" label="Humidade relativa" icon="chart" height=10
             }
             Frame label="Informação Astronomica" icon="sun"{
                 Text item=positionElevation     label="Elevação Solar"  icon="sun"
@@ -82,13 +90,13 @@ sitemap test1 label="Casa Brufe"{
             }
             Frame label="Evolução do consumo"{
                 Switch item=energy_chart_period label="Pot Activa (W)" icon="chart" mappings=[3="Hora", 4="Dia", 5="Semana"]
-                Chart item=potActiva period=h refresh=2000 visibility=[energy_chart_period==3, energy_chart_period=="NULL"] legend=false
-                Chart item=potActiva period=D refresh=2000 visibility=[energy_chart_period==4] legend=false
-                Chart item=potActiva period=W refresh=2000 visibility=[energy_chart_period==5] legend=false
+                Chart item=potActiva period=h refresh=2000 visibility=[energy_chart_period==3, energy_chart_period=="NULL"] legend=false service="influxdb"
+                Chart item=potActiva period=D refresh=2000 visibility=[energy_chart_period==4] legend=false service="influxdb"
+                Chart item=potActiva period=W refresh=2000 visibility=[energy_chart_period==5] legend=false service="influxdb"
                 Text label="Energia kWh" icon="chart"
-                Chart item=energia period=h refresh=2000 visibility=[energy_chart_period==3, energy_chart_period=="NULL"] legend=false
-                Chart item=energia period=D refresh=2000 visibility=[energy_chart_period==4] legend=false
-                Chart item=energia period=W refresh=2000 visibility=[energy_chart_period==5] legend=false
+                Chart item=energia period=h refresh=2000 visibility=[energy_chart_period==3, energy_chart_period=="NULL"] legend=false service="influxdb"
+                Chart item=energia period=D refresh=2000 visibility=[energy_chart_period==4] legend=false service="influxdb"
+                Chart item=energia period=W refresh=2000 visibility=[energy_chart_period==5] legend=false service="influxdb"
             }
         }
         Text label="Cameras" icon="camera"{
@@ -119,7 +127,7 @@ sitemap test1 label="Casa Brufe"{
                 }
             }
             Text label="Rega programada" icon="calendar"{
-                    Webview url="http://192.168.1.12:8080/static/time-line-picker/index.html?ip=192.168.1.12:8080&transferItem=TransferItem1&states=Off,Zona1,Zona2,Zona3,Zona4,Zona5&yAxisLabel=1,2,3,4,5,67&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Calendário de rega" height=20   
+                    Webview url="http://192.168.1.14:8080/static/time-line-picker/index.html?ip=192.168.1.14:8080&transferItem=TransferItem1&states=Off,Zona1,Zona2,Zona3,Zona4,Zona5&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Calendário de rega" height=20   
             }
             Text label="Zonas-definições" icon="settings"{
                 Frame label="Zona 1" {
@@ -152,8 +160,10 @@ sitemap test1 label="Casa Brufe"{
                     Setpoint item=zone5_2 label="Duração rega individual [%d min]" minValue=1 maxValue=10 step=1 icon="time"
                     Setpoint item=zone5_1 label="Duração rega conjunto [%d min]" minValue=1 maxValue=10 step=1 icon="time"
                 }
-            }
-            
+            } 
+        }
+        Text label="Actividades programadas" icon="calendar"{
+                Webview url="http://192.168.1.14:8080/static/time-line-picker/index.html?ip=192.168.1.14:8080&transferItem=TransferItem2&states=Off,Lago_Bomba,Lago_Iluminação&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Actividades programadas" height=20   
         }
     }
     Frame label="Configuração" icon="settings" {
