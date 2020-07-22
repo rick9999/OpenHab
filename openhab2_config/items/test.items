@@ -34,6 +34,7 @@ Group Zone3             <water> (Irrigation)
 Group Zone4             <water> (Irrigation)
 Group Zone5             <water> (Irrigation)
 Group Valves            <water> (Irrigation)
+Group Devices
 
 /* Open Weather Map */
 
@@ -343,9 +344,9 @@ Image camSeg_2                      {channel="ipcamera:ONVIF:de1ae9e7:image"}
 Switch camSeg_1_Updat "Atualizar"   {channel="ipcamera:ONVIF:5c450b61:updateImageNow", expire="10s,command=OFF"}
 Switch camSeg_2_Updat "Atualizar"   {channel="ipcamera:ONVIF:de1ae9e7:updateImageNow", expire="10s,command=OFF"}
 
-Switch aux_exterior_garagem "Comando AUX garagem" <switch>      {channel="mysensors:light:392e03a9:light_6_53:status"}
-Switch comando_sonoff1      "Sonoff 1"            <switch>      {channel="mqtt:topic:582c2e16:Sonoff_1_switch"}
-String Sonoff1Status "Sonoff 1 estado"            <energy>  {channel="mqtt:topic:582c2e16:Sonoff_1_status"}
+Switch aux_exterior_garagem "Comando AUX garagem"           <switch>                {channel="mysensors:light:392e03a9:light_6_53:status"}
+Switch comando_sonoff1      "Lago -Bomba de circulação"     <flow>      (Devices)   {channel="mqtt:topic:582c2e16:Sonoff_1_switch"}
+String Sonoff1Status        "Bomba de circulação estado"    <flow>                  {channel="mqtt:topic:582c2e16:Sonoff_1_status"}
 
 /* Xiaomi */
 Switch MiMotionSensor_2_Motion       "Motion status_escadas"    <motion>     (seguranca, pir)  {channel="mihome:sensor_motion_aq2:158d000360151b:motion"}
@@ -400,6 +401,13 @@ Group gTimepicker
 Group gTimepickerObserver
 
 
-String TimelineHelper "[%s]"
-String TransferItem1 "[%s]"      (gTimepicker)
-String SprinklerZone "[%s]"	     (gTimepicker)
+String TimelineHelper           "[%s]"
+String TransferItem1            "[%s]"      (gTimepicker)
+String TransferItem2            "[%s]"      (gTimepicker)
+String SprinklerZone            "[%s]"	    (gTimepicker)
+String ActividadesProgramadas   "[%s]"      (gTimepicker)
+
+/* Voice commands */
+
+String VoiceCommand
+Switch Voice_Robot "Voice Testing" ["Switchable"]
