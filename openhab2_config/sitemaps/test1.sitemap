@@ -41,6 +41,14 @@ sitemap test1 label="Casa Brufe"{
                 Switch item=aux_exterior_garagem
                 Switch item=comando_sonoff1
                 Text item=Sonoff1Status
+                Text label="Comandos de voz" icon="microphone"{
+                    Text label="lago ligar bomba" icon="microphone"
+                    Text label="lago desligar bomba" icon="microphone"
+                    Text label="entrada abrir" icon="microphone"
+                    Text label="entrada fechar" icon="microphone"
+                    Text label="garagem abrir" icon="microphone"
+                    Text label="garagem fechar" icon="microphone"
+                }
             }
         }
     }
@@ -127,7 +135,7 @@ sitemap test1 label="Casa Brufe"{
                 }
             }
             Text label="Rega programada" icon="calendar"{
-                    Webview url="http://192.168.1.14:8080/static/time-line-picker/index.html?ip=192.168.1.14:8080&transferItem=TransferItem1&states=Off,Zona1,Zona2,Zona3,Zona4,Zona5&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Calendário de rega" height=20   
+                    Webview url="http://192.168.1.100:8080/static/time-line-picker/index.html?ip=192.168.1.100:8080&transferItem=TransferItem1&states=Off,Zona1,Zona2,Zona3,Zona4,Zona5&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Calendário de rega" height=20   
             }
             Text label="Zonas-definições" icon="settings"{
                 Frame label="Zona 1" {
@@ -163,7 +171,7 @@ sitemap test1 label="Casa Brufe"{
             } 
         }
         Text label="Actividades programadas" icon="calendar"{
-                Webview url="http://192.168.1.14:8080/static/time-line-picker/index.html?ip=192.168.1.14:8080&transferItem=TransferItem2&states=Off,Lago_Bomba,Lago_Iluminação&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Actividades programadas" height=20   
+                Webview url="http://192.168.1.100:8080/static/time-line-picker/index.html?ip=192.168.1.100:8080&transferItem=TransferItem2&states=Off,Lago_Bomba,Lago_Iluminação&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Actividades programadas" height=20   
         }
     }
     Frame label="Configuração" icon="settings" {
