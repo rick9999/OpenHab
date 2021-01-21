@@ -20,7 +20,8 @@ sitemap test1 label="Casa Brufe"{
         Text label="Rega activa  -  Sector 3" icon="water" visibility=[zone3_s=="ON"]
         Text label="Rega activa  -  Sector 4" icon="water" visibility=[zone4_s=="ON"]
         Text label="Rega activa  -  Sector 5" icon="water" visibility=[zone5_s=="ON"]
-        Text label="Lago - Bomba de circulação activada" icon="flow" visibility=[comando_sonoff1=="ON"]
+        Text label="Lago - Bomba de circulação activada" icon="flow" visibility=[Sonoff4Ch1P=="ON"]
+        Text label="Iluminação de Natal activada" icon="tree.png" visibility=[Sonoff_mini1=="ON"]
     }
     Frame label="Controlo"{
 	Text label="Portões" icon="garagedoor"{    
@@ -39,8 +40,7 @@ sitemap test1 label="Casa Brufe"{
 	Text label="Diversos" icon="wallswitch"{
             Frame {
                 Switch item=aux_exterior_garagem
-                Switch item=comando_sonoff1
-                Text item=Sonoff1Status
+                Group item=Devices label="Sonoff" icon="sonoff_.png"
                 Text label="Comandos de voz" icon="microphone"{
                     Text label="lago ligar bomba" icon="microphone"
                     Text label="lago desligar bomba" icon="microphone"
@@ -80,8 +80,8 @@ sitemap test1 label="Casa Brufe"{
                 Chart item=temperatura_rc_sala period=h refresh=2000 visibility=[weather_chart_period==0, weather_chart_period=="NULL"] legend=false service="influxdb"
                 Chart item=temperatura_rc_sala period=D refresh=2000 visibility=[weather_chart_period==1] legend=false service="influxdb"
                 Chart item=temperatura_rc_sala period=W refresh=2000 visibility=[weather_chart_period==2] legend=false service="influxdb"
-                Webview url="http://192.168.1.101:3000/d-solo/jEWBLWRgz/temphumid?orgId=1&refresh=15m&from=1595347943656&to=1595434343656&panelId=2&theme=light" label="Temperatura" icon="chart" height=10
-                Webview url="http://192.168.1.101:3000/d-solo/jEWBLWRgz/temphumid?orgId=1&refresh=15m&from=1595348208611&to=1595434608611&panelId=16&theme=light" label="Humidade relativa" icon="chart" height=10
+                Webview url="http://192.168.1.101:3000/d-solo/GgvDY_WRk/condicoes-atmosfericas?orgId=1&from=now-24h&to=now&theme=dark&panelId=2" label="Temperatura" icon="chart" height=10
+                Webview url="http://192.168.1.101:3000/d-solo/GgvDY_WRk/condicoes-atmosfericas?orgId=1&from=now-24h&to=now&theme=dark&panelId=3" label="Humidade relativa" icon="chart" height=10
             }
             Frame label="Informação Astronomica" icon="sun"{
                 Text item=positionElevation     label="Elevação Solar"  icon="sun"
@@ -105,6 +105,8 @@ sitemap test1 label="Casa Brufe"{
                 Chart item=energia period=h refresh=2000 visibility=[energy_chart_period==3, energy_chart_period=="NULL"] legend=false service="influxdb"
                 Chart item=energia period=D refresh=2000 visibility=[energy_chart_period==4] legend=false service="influxdb"
                 Chart item=energia period=W refresh=2000 visibility=[energy_chart_period==5] legend=false service="influxdb"
+                Webview url="http://192.168.1.101:3000/d-solo/GGSGtJzgk/energy-monitoring?orgId=1&refresh=1m&theme=light&panelId=6" label="Consumo energético diário" icon="chart" height=5
+                Webview url="http://192.168.1.101:3000/d-solo/GGSGtJzgk/energy-monitoring?orgId=1&refresh=1m&theme=light&panelId=3" label="Consumo energético diário" icon="chart" height=5
             }
         }
         Text label="Cameras" icon="camera"{
@@ -171,11 +173,11 @@ sitemap test1 label="Casa Brufe"{
             } 
         }
         Text label="Actividades programadas" icon="calendar"{
-                Webview url="http://192.168.1.100:8080/static/time-line-picker/index.html?ip=192.168.1.100:8080&transferItem=TransferItem2&states=Off,Lago_Bomba,Lago_Iluminação&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Actividades programadas" height=20   
+                Webview url="http://192.168.1.100:8080/static/time-line-picker/index.html?ip=192.168.1.100:8080&transferItem=TransferItem2&states=Off,Lago_Bomba,Lago_Iluminação,Iluminação_Natal&yAxisLabel=1,2,3,4,5,6,7&lang=pt&event=no&dark=no&zoom=force&colorset=555E7B,B7D968,B576AD,E04644,FDE47F,7CCCE5,D486E8&deactivation=true" icon="calendar" label="Actividades programadas" height=20   
         }
     }
     Frame label="Configuração" icon="settings" {
-	Text label="Mi Smart Home Gateway" icon="mi_smart_home"{
+	Text label="Mi Smart Home Gateway" icon="mi_smart_home.png"{
         	Slider item=MiGateway_Brightness
 		Text item=MiGateway_Illumination
            	 Colorpicker item=MiGateway_Color

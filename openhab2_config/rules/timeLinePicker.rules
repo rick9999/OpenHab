@@ -256,11 +256,15 @@ then
   switch ActividadesProgramadas {
     case ActividadesProgramadas.state == "Lago_Bomba" : {
 	  logInfo("Lago_Bomba","Turning on Lago_Bomba")
-    comando_sonoff1.sendCommand(ON)
+    Sonoff4Ch1P.sendCommand(ON)
     }
     case ActividadesProgramadas.state == "Lago_Iluminação" : {
 	  logInfo("Lago_Iluminação","Turning on Lago_Iluminação")
-    //zone2_s.sendCommand(ON)
+    Sonoff4Ch2P.sendCommand(ON)
+    }
+    case ActividadesProgramadas.state == "Iluminação_Natal" : {
+	  logInfo("Iluminação_Natal","Turning on Iluminação_Natal")
+    Sonoff_mini1.sendCommand(ON)
     }
 	case ActividadesProgramadas.state == "Off" : {
 	  // turn off all devices

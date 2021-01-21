@@ -22,6 +22,8 @@ Group 2A_sotao      "Sótão"             <attic>     (g2A)
 Group exterior_jardim     "Jardim"      <garden>    (exterior)
 Group exterior_garagem    "Garagem"     <garage>    (exterior)
 
+Group Jardim_Lago         "Lago"        <lake>     (exterior_jardim)
+
 Group estado
 Group pMeter
 
@@ -35,6 +37,7 @@ Group Zone4             <water> (Irrigation)
 Group Zone5             <water> (Irrigation)
 Group Valves            <water> (Irrigation)
 Group Devices
+Group Lago
 
 /* Open Weather Map */
 
@@ -334,6 +337,8 @@ Number powerFactor  "Factor Potência [%.2f  %%]"    <energy> (pMeter) {channel=
 Number voltage      "Tensão [%.1f  V]"              <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:var2"}
 Number current      "Currente [%.2f  A]"            <energy> (pMeter) {channel="mysensors:power:392e03a9:power_4_1:var3"}
 Number energy_chart_period     "Gráfico"
+Number W_vazio  "Potência Activa_Vazio [%.1f  W]"   <energy> (pMeter)
+Number W_cheio  "Potência Activa_Cheio [%.1f  W]"   <energy> (pMeter)
 
 Switch Laura     "Laura Online"                 <network>  (presence) {channel="network:pingdevice:fa271777:online"}
 Switch Ricardo_Huawei   "Ricardo Online" <network>  (presence) {channel="network:pingdevice:c0aefa64:online"}
@@ -344,9 +349,17 @@ Image camSeg_2                      {channel="ipcamera:ONVIF:de1ae9e7:image"}
 Switch camSeg_1_Updat "Atualizar"   {channel="ipcamera:ONVIF:5c450b61:updateImageNow", expire="10s,command=OFF"}
 Switch camSeg_2_Updat "Atualizar"   {channel="ipcamera:ONVIF:de1ae9e7:updateImageNow", expire="10s,command=OFF"}
 
-Switch aux_exterior_garagem "Comando AUX garagem"           <switch>                {channel="mysensors:light:392e03a9:light_6_53:status"}
-Switch comando_sonoff1      "Lago -Bomba de circulação"     <flow>      (Devices)   {channel="mqtt:topic:582c2e16:Sonoff_1_switch"}
-String Sonoff1Status        "Bomba de circulação estado"    <flow>                  {channel="mqtt:topic:582c2e16:Sonoff_1_status"}
+Switch aux_exterior_garagem "Comando AUX garagem"       <switch>                                            {channel="mysensors:light:392e03a9:light_6_53:status"}
+Switch comando_sonoff1      "Iluminação jardim"         <light>     (Devices, exterior_jardim,iluminacao)   {channel="mqtt:topic:582c2e16:Sonoff_1_switch"}
+String Sonoff1Status        "Sonoff1 estado"                        (Devices)                               {channel="mqtt:topic:582c2e16:Sonoff_1_status"}
+Switch Sonoff4Ch1P          "Lago -Bomba de circulação" <flow>      (Devices, Jardim_Lago)                  {channel="mqtt:topic:5163fe58:sonoff_4ch_1p"}
+Switch Sonoff4Ch2P          "Iluminação lago"           <light>     (Devices, Jardim_Lago, iluminacao)      {channel="mqtt:topic:5163fe58:sonoff_4ch_2p"}
+Switch Sonoff4Ch3P          "Canal3 switch"             <switch>    (Devices)                               {channel="mqtt:topic:5163fe58:sonoff_4ch_3p"}
+Switch Sonoff4Ch4P          "Canal4 switch"             <switch>    (Devices)                               {channel="mqtt:topic:5163fe58:sonoff_4ch_4p"}
+String Sonoff4ChStatus      "Sonoff 4ch estado"                     (Devices)                               {channel="mqtt:topic:5163fe58:sonoff_4ch_status"}
+Switch Sonoff_mini1         "Iluminação Natal"         <light>      (Devices, exterior_jardim,iluminacao)   {channel="mqtt:topic:4bc0bceb:Sonoff_mini1_switch"}
+String Sonoff_mini1Status   "Sonoff_mini_1 estado"                  (Devices)                               {channel="mqtt:topic:4bc0bceb:Sonoff_mini1_status"}
+
 
 /* Xiaomi */
 Switch MiMotionSensor_2_Motion       "Motion status_escadas"    <motion>     (seguranca, pir)  {channel="mihome:sensor_motion_aq2:158d000360151b:motion"}
@@ -408,6 +421,13 @@ String SprinklerZone            "[%s]"	    (gTimepicker)
 String ActividadesProgramadas   "[%s]"      (gTimepicker)
 
 /* Voice commands */
+Group comandosVoz
+String 1 "lago ligar bomba" <recorder> (comandosVoz)
+String 2 "lago desligar bomba" <recorder> (comandosVoz)
+String 3 "entrada abrir" <recorder> (comandosVoz)
+String 4 "entrada fechar" <recorder> (comandosVoz)
+String 5 "garagem abrir" <recorder> (comandosVoz)
+String 6 "garagem fechar" <recorder> (comandosVoz)
 
 String VoiceCommand
 Switch Voice_Robot "Voice Testing" ["Switchable"]

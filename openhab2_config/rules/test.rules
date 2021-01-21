@@ -4,16 +4,31 @@ rule "Iluminacao"
 when
     Item info_exterior_jardim_portao changed to OPEN
 then
-    comando_sonoff1.sendCommand(ON)
     var gatewaylux = MiGateway_Illumination.state as Number
     if(gatewaylux  < 400  ) {
         light_exterior_jardim_garagem.sendCommand(ON)   
     }
-    myTimer = createTimer(now.plusSeconds(30)) [|
-    comando_sonoff1.sendCommand(OFF)
+    myTimer = createTimer(now.plusSeconds(120)) [|
     light_exterior_jardim_garagem.sendCommand(OFF)
     myTimer = null
     ]
 end
 
+rule "tarifário energia Vazo"
+when
+    Time cron "0 * 0,1,2,3,4,5,6 ? * MON,TUE,WED,THU,FRI *" or
+    Time cron "0 * 0,1,2,3,4,5,6,7,8,9,13,14,15,16,17,18,22,23 ? * SAT *" or
+    Time cron "0 * * ? * SUN *"
+then
+    W_vazio.postUpdate(potActiva.state as Number)
+    W_cheio.postUpdate(0)
+end
 
+rule "tarifário energia cheio"
+when
+    Time cron "0 * 7-23 ? * MON,TUE,WED,THU,FRI *" or
+    Time cron "0 * 10,11,12,19,20,21 ? * SAT *"
+then
+    W_cheio.postUpdate(potActiva.state as Number)
+    W_vazio.postUpdate(0)
+end

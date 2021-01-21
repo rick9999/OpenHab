@@ -22,13 +22,13 @@ then
             logInfo("Lago_Bomba","Turning off Lago_Bomba")
             comando_sonoff1.sendCommand(OFF)
         }
-        case comando.contains("portão abrir") : {
+        case comando.contains("entrada abrir") : {
             logInfo("Portão de entrada","a abrir portão de entrada")
-            //comando_sonoff1.sendCommand(OFF)
+            comando_exterior_jardim_portao.sendCommand(ON)
         }
-        case comando.contains("portão fechar") : {
+        case comando.contains("entrada fechar") : {
             logInfo("Portão de entrada","a fechar portão de entrada")
-            //comando_sonoff1.sendCommand(OFF)
+            comando_exterior_jardim_portao.sendCommand(ON)
         }
         case comando.contains("garagem abrir") : {
             logInfo("Garagem","a abrir garagem")
