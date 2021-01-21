@@ -1,0 +1,134 @@
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/switchPointSet.css" media="screen" />
+</head>
+<body>
+<div id="app" v-cloak>
+  <div class="widgetWrapper" :class="{widgetWrapperDark: darkMode}">
+    <div class="pickerToolbar">
+      <div class="legend mdl-grid">
+        <div class="legendItem mdl-cell mdl-cell--1-col"
+          v-for="(i,key) in switchStatesCount"
+          :key="key"
+          @click="setCurrentSwitchState(key)"
+        >
+          <div class="legendRec" :style="{background: scaleValueColors[key]}"></div>
+          <span>{{switchStates[key]}}</span>
+        </div>
+      </div>
+      <div class="legendRight">
+        <div class="currentValue">
+          <div class="currentRec legendItemWrapper" :style="{background: scaleValueColors[currSwitchstate]}"></div>
+          <span class="labeltLegendRight">current</span>
+        </div>
+        <div class="legendEvent" v-if="eventTrigger === true">
+          <div class="legendItemWrapper">
+            <i class="material-icons eventIcon">schedule</i>
+          </div>
+          <span class="labeltLegendRight">events</span>
+        </div>
+      </div>
+    </div>
+    <div class="stateChangedHint" v-if="statesChanged == 1">
+      <p>You have changed the call parameter!</p>
+      <p>Switchmatrix will be ereased.</p>
+      <p>Do you want to continue?</p>
+      <div>
+        <button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect mdl-button--accent" @click="firstInitValueArray()">yes</button>
+        <span></span>
+        <button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect mdl-button--accent" @click="stateChangedAbort()">no</button>
+      </div>
+    </div>
+    <div class="stateChangedError" v-if="statesChanged == 2">
+      <p>please contact your admin</p>
+      <i class="material-icons">clear</i>
+    </div>
+    <div v-if="statesChanged == 0">
+      <div id="contentWrapper">
+        <div class="pickerContent">
+          <div class="yAxis">
+            <div v-for="(i,key) in yAxisLabel">{{i.label}}</div>
+          </div>
+          <div class="scaleWrapper">
+            <div class="xAxis">
+              <span v-for="(item,key) in currTimeScale">{{currTimeScale[key]}}</span>
+            </div>
+            <div class=scaleSet>
+              <time-scale
+                v-for="(j,key) in numberScales"
+                :key="key"
+                :index-line="j"
+                :init-value="initValue"
+                :curr-Switchstate="currSwitchstate"
+                :scale-colors="scaleValueColors"
+                :event-trigger="eventTrigger"
+                :zoom-factor="zoomFactor1"
+                :curr-time="currTime1"
+              ></time-scale>
+            </div>
+            <div class="xAxis xaBottom">
+              <span v-for="(item,key) in currTimeScale">{{currTimeScale[key]}}</span>
+            </div>
+          </div>
+        </div>
+      <tl-inactive v-if="deactivation && tl_inactive" :lang="currLang" :last-state="tl_inactive_lastState" @click="toggleDisable"></tl-inactive>
+      </div>
+      <div id="pickerFooter">
+        <div class="zoomSlider"
+          :class="[ (orientation == 'portrait') ? 'zoomSlider_port': 'zoomSlider_land' ]"
+          v-show="zoomVisible"
+        >
+          <div class="scaleZoom">
+            <input id="slider1" class="mdl-slider mdl-js-slider" v-model="zoomFactor" type="range" min="0" max="2" step="1" tabindex="0">
+            <div class="xAxis_zoom">
+              <span>x1</span>
+              <span>x3</span>
+              <span>x6</span>
+            </div>
+          </div>
+          <div class="timeRange" v-show="!((orientation == 'portrait') && zoomFactor == 0)">
+            <input class="mdl-slider mdl-js-slider" v-model="currTime" type="range" min="0" max="24" step="2" tabindex="0" :disabled="zoomFactor == 0">
+            <div class="xAxis_zoom  xAxis_firstLast">
+              <span v-for="(item,key) in xAxisTimeScale">{{xAxisTimeScale[key]}}</span>
+            </div>
+          </div>
+        </div>
+        <div id="footerButton">
+          <button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect mdl-button--accent" @click="setInterval()">
+            save
+            <span class="mdl-button__ripple-container">
+              <span class="mdl-ripple"></span>
+            </span>
+          </button>
+          <span class="space"></span>
+          <div id="deactivate" class="activation" @click="toggleDisable" v-if="deactivation && !secPrompt && !tl_inactive">
+            <div>{{line4}}</div>
+          </div>
+          <button id="btn-secPrompt" class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect mdl-button--accent" v-if="secPrompt" @click="saveInterval()">
+            sure
+            <span class="mdl-button__ripple-container">
+              <span class="mdl-ripple"></span>
+            </span>
+          </button>
+          <button class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect mdl-button--accent" v-if="secPrompt" @click="abort()">
+            abort
+            <span class="mdl-button__ripple-container">
+              <span class="mdl-ripple"></span>
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script language="javascript" type="text/javascript" src="js/vue.js"></script>
+<script language="javascript" type="text/javascript" src="js/vue-resource.js"></script>
+<script language="javascript" type="text/javascript" src="js/prefs.js"></script>
+<script language="javascript" type="text/javascript" src="js/switchPointSet.js"></script>
+</body>
+</html>

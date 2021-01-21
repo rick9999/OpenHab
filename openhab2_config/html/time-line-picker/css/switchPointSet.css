@@ -1,0 +1,346 @@
+body {
+        font-family: roboto;
+        min-height: 95%;
+        width: 95%;
+}
+.day {
+    width: 100%;
+    height: 30px;
+}
+.scale {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.unit {
+    background: lightgrey;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.one {
+    width:100%;
+    height: calc(100% / 2);
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+}
+.two {
+    width:100%;
+    height: calc(100% / 4);
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+}
+.three {
+    width:100%;
+    height: calc(100% / 8);
+    display: flex;
+    flex-direction: row;
+    border-right: 1px solid grey;
+    z-index: 10;
+}
+.lineR {
+    border-right: 1px solid grey;
+}.lineL {
+    border-left: 1px solid grey;
+}
+.widgetWrapper {
+    display: flex;
+    flex-direction: column;
+    color: rgba(0,0,0,.87);
+    background: #F5F5F5;
+    width: 100%;
+    padding: 10px;
+}
+.widgetWrapperDark {
+    display: flex;
+    flex-direction: column;
+    color: rgba(205, 205, 205, 0.87);
+    background: #000;
+    width: 100%;
+    padding: 10px;
+}
+.pickerToolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 80px;
+    padding-right: 30px;
+    font-size: 11px;
+    margin-bottom: 20px;
+}
+.legend {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 5;
+    align-items: center;
+}
+.legendItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 55px;
+}
+.labeltLegendRight {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+.legendRec {
+    width: 25px;
+    height: 15px;
+    margin-right: 8px;
+    min-width: 25px;
+}
+.legendRight {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+.legendItemWrapper {
+    width: 30px;
+    width: 25px;
+    margin-right: 8px;
+}
+#contentWrapper {
+  position: relative;
+}
+.pickerContent {
+  display: flex;
+  flex-direction: row;
+}
+#overlayDisable {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(184, 184, 184);
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+#overlayDisableContent {
+  width: 29%;
+  min-width: 210px;
+  max-width: 300px;
+  height: 27%;
+  background: white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+#overlayDisableContent > div {
+  color: black;
+  opacity: 0.7;
+}
+#overlayDisableContent > div:nth-child(1) {
+  font-size: 23px;
+  font-weight: 1000;
+}
+#overlayDisableContent > div:nth-child(2) {
+  font-size: 17px;
+  font-weight: 500;
+}
+.activation {
+  width: 10%;
+  max-width: 110px;
+  min-width: 100px;
+  height: 10%;
+  top :20px;
+  right: 25px;
+  background: white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.activation > div {
+  font-weight: 500;
+}
+#reactivate {
+  position: absolute;
+}
+#deactivate {
+  height: 30px;
+}
+#deactivate:hover {
+  background: #a6a6a6;
+  color: white;
+}
+#deactivate:active {
+  background: #d9d9d9;
+  color: #333333;
+}
+#reactivate:hover {
+  background: #404040;
+  color: white;
+}
+#reactivate:active {
+  background: #999999;
+  color: black;
+}
+#pickerFooter {
+  padding-left: 80px;
+  padding-right: 30px;
+  padding-top: 25px;  
+}
+#footerButton {
+    display: flex;
+    flex-direction: row;
+}
+.zoomSlider {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.zoomSlider_land {
+  flex-direction: row;
+}
+.zoomSlider_port {
+  flex-direction: column;
+}
+.scaleZoom {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.timeRange {
+  width: 70%;
+}
+.zoomSlider_port .scaleZoom,
+.zoomSlider_port .timeRange {
+  width:100%;
+  margin-bottom: 20px;
+}
+.xAxis_zoom {
+  display: flex;
+  flex-direction: row;
+  margin: 0 20px 0 20px;
+  justify-content:space-between;
+  font-weight: 600;
+  font-size: 12px;
+}
+.xAxis_firstLast > span:first-child,
+.xAxis_firstLast > span:last-child {
+  color: rgba(0,0,0,0.0)
+}
+.currentValue {
+    display: flex;
+    flex-direction: row;
+    padding-top: 8px;
+}
+.currentRec {
+    height: 15px;
+}
+.legendEvent {
+    display: flex;
+    align-items: center;
+}
+.eventIcon {
+    color: #616161;
+}
+.yAxis {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 3px;
+    padding-left: 5px;
+    padding-top: 37px;
+    padding-bottom: 37px;
+}
+.xAxis {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0.5rem;
+  padding-right: 25px;
+  justify-content:space-between;
+  font-size: 12px;
+  font-weight: bold;
+}
+.xAxisLast > span:last-child {
+  color: rgba(0,0,0,0.0)
+}
+.xaBottom {
+    margin-top: 10px;
+}
+.scaleWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+}
+.scaleSet {
+    display: flex;
+    flex-direction: column;
+}
+#btn-secPrompt {
+    margin-right: 15px;
+}
+.space {
+    flex-grow: 5;
+}
+.stateChangedHint {
+    display: flex;
+    flex-direction: column;
+}
+div.stateChangedHint > p {
+    align-self: center;
+    margin-bottom: 5px;
+}
+div.stateChangedHint > p:nth-child(1) {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+div.stateChangedHint > p:nth-child(2) {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+div.stateChangedHint > p:nth-child(3) {
+    font-size: 18px;
+}
+.stateChangedHint > div {
+    align-self: center;
+    margin-bottom: 30px;
+}
+.stateChangedHint > div > button:first-child {
+    margin-right: 20px;
+}
+.stateChangedError {
+    display: flex;
+    flex-direction: column;  
+}
+.stateChangedError > p {
+    align-self: center;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.stateChangedError > i {
+    align-self: center;
+    margin-bottom: 20px;
+    font-size: 58px;
+}
+[v-cloak] > * {
+    display:none;
+}
+[v-cloak]::before {
+    content: "loading ...";
+    font-size: 16px;
+}
